@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="stylesheets/foundation.css" media=screen />
+        <link rel="stylesheet" type="text/css" href="stylesheets/app.css" media=screen />
+        <link rel="stylesheet" type="text/css" href="stylesheets/ie.css" media=screen />
+
+
+        <title>Jennifer Paparelli | Tutorials</title>
+
+        <div class="row" id="header">
+
+        <div class="three columns">
+            <img src="images/logo.png" alt="logo" />
+        </div>
+
+        <div class="one columns">
+
+        </div>
+
+        <div class="eight columns">
+                <div class="eight columns">
+                    <ul class="nav-bar">
+                        <li>
+                            <a href="index.html" class="main">Home</a>
+                        </li>
+                        <li>
+                            <a href="portfolio.html" class="main">Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="experience.html" class="main">Experience</a>
+                        </li>
+                        <li>
+                            <a href="tutorials.html" class="main">Tutorials</a>
+                            <ul>
+                                <li>This is link 1</li>
+                                <li>This is link 2</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="blog.html" class="main">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </head>
+
+
+
+    <body>
+        <div class="container">
+
+            <div class="row">
+                <div class="twelve columns">
+                    <div class="panel" id="transbox3">
+
+                        <div class="purpletext">Help! I need to encrypt my own USB stick!</div>
+                        <br />
+
+                        <p>What if you lost your USB stick? Maybe your taxes are saved on one?</p>
+                        <p>Do you work in healthcare or finance? Encrypting your USB stick is not only easy, but a very smart idea</p>
+                        <br/>
+                        <p>Below is a video tutorial of how to use TrueCrypt to encrypt your files</p>
+                        <br />
+                        <br />
+
+                        <div class="purpletext">Encrypting A USB Drive With TrueCrypt</div>
+                        <br/>
+                        <div class="browntext">Intended Audience</div>
+                        <p>Anyone at any skill level looking for their information on a USB stick to be safe.</p>
+                        <br />
+
+
+                        <div class="browntext">How Does This Work?</div>
+                        <p>TrueCrypt creates and maintains on-the-fly encryption to any drive (cd, DVD, hard drive, USB). The files are automatically encrypted when the user clicks save. Files are automatically decrypted when you open them.</p>
+                        <p>In order to work with your files, you must mount (connect) the drive. This is for safety, if you shut down or restart your computer, the drive will unmount, (disconnect) even if it is still plugged in. To use them, you must mount the drive. After you  have mounted the drive, you are able to use the decrypted data on the drive (volume) by entering your password. Without the correct password, data cannot be read.</p>
+                        <br />
+
+                        <div class="browntext">In order to encrypt a USB stick, you will need:</div>
+                        <ol>
+                            <li>A USB stick</li>
+                            <li> A Mac or Windows computer</li>
+                            <li>TrueCrypt program installed on your computer (http://www.truecrypt.org/downloads)</li>
+                        </ol>
+
+                        <div class="browntext">Things to think about before you encrypt your drive:</div>
+                        <p>Would you like to encrypt the entire USB drive or just one folder? </p>
+                        <p>Encrypting the entire drive will mean you need TrueCrypt installed on every machine you wish to view the files on. Benefit: if you lost your USB drive, no one can view your files without your password AND the program installed.</p>
+                        <p>Encrypting only a folder requires you to have TrueCrypt installed and your password to view files in that folder. Benefit: you can still use the other files/folders on the USB on any machine without TrueCrypt, but if you lose the USB stick, only files in the encrypted folder are protected, any not in the folder are public.</p>
+                        <br />
+
+                        <div class="italictext">Be careful not to lose existing data</div>
+                        <p>Backup your data currently on the drive to your desktop. Create a folder on your desktop; you can leave it as untitled. Drag all the items from the flash drive into the folder on the desktop.</p>
+
+                        <div class="italictext">Do you want a hidden volume?</div>
+                        <p>A hidden volume is a TrueCrypt volume (inner) created in another TrueCrypt (outer) volume. When you mount the outer volume, it is impossible to know if there is a hidden (inner) volume within the free space on any drive encrypted by TrueCrypt.</p>
+                        <p>When a volume (outer) is created, any blank space left is filled with random data, because of this, even a  dismounted hidden volume is not seen because it looks the same as the random data.</p>
+                        <br />
+
+                        <div class="purpletext">Introduction To Using TrueCrypt</div>
+                        <br />
+                        <div class="middle">
+                            <iframe width="560" height="315" src="http://www.youtube.com/embed/nVEvYH7-rsg" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <br />
+                        <br />
+
+                        <div class="purpletext">Tutorial</div>
+                        <p>Step 1: Download TrueCrypt; open the program TrueCrypt from Start, Programs</p>
+                        <p>Step 2:  The wizard appears, Select, Create Volume</p>
+                        <p>Step 3: You have a decision; you can encrypt the entire drive, or choose to encrypt a container (folder). Be warned, if you encrypt the entire thing, it will reformat your drive and you will lose everything. This is why we backed it up to your desktop to be copied back after encryption is complete.</p>
+                        <p>Once you decide, click next.</p>
+
+                        <br />
+                        <p>Step 4: Click select file, and select the removable disk drive.</p>
+                        <p>In this drive, create a new txt file, call it something silly, such as "my report card" or "cat pictures", make this something no one would ever bother to look in.</p>
+                        <p>I named mine truecrypt.txt</p>
+
+                        <br />
+                        <p>Step 5: Select this file you have created, and hit "open"</p>
+                        <div class="middle">
+                            <img src="images/step5.png" alt="step 5"/>
+                        </div>
+                        <br />
+                        <br />
+
+                        <p>Step 6: Select create volume, choose create an encrypted file container and choose next.</p>
+                        <div class="middle">
+                            <img src="images/step6.png" alt="step 6"/>
+                        </div>
+                        <br />
+                        <br />
+                        <p>Step 7: Decide if this is to be a standard file container, or a hidden file container. I am choosing standard and clicking next.</p>
+                        <p>Step 8: Location of the file. Tell the program which file to point to.</p>
+                        <div class="middle">
+                            <img src="images/step8.png" alt="step 8"/>
+                        </div>
+
+                        <br />
+                        <br />
+                        <p>Step 9: The program is now asking what type of encryption you wish to choose. I like AES (Advanced Encrytion Standard) because it uses the same key to encrypt data and decrypt data. It is the standard and is used to protect information at the secret level and top secret level of government classification. Its block size is 128 bits and its key is similar to serpent, having a key size of 128, 192 or 256 bits.</p>
+                        <p>You can also choose Serpent, TwoFish, AES TwoFish, AES TwoFish Serpent, Serpent AES, Serpent TwoFish AES, TwoFish Serpent.</p>
+                        <br />
+
+                        <p>Here's the differences:</p>
+                        <p>Serpent: Is a block cipher number two behind AES and uses 128, 192 and 256 bits as a key size and 128 bits of block size.</p>
+                        <p>TwoFish: Is also a block cipher but was not selected as AES. Like the others, it has a 128 bit block and a key from 128 to 256 bits.</p>
+                        <br />
+
+                        <p>Step 10:This step asks you to select a volume Size. I've made my container 10MB.</p>
+                        <p>Step 11: Create a password you will remember. Using *@#.$ and uppercase letters makes it harder for them to crack. As does a 20 character password. Then select next.</p>
+                        <p>Step 12: Formats. FAT32 is good for Windows, the drop down allows for Mac also.</p>
+                        <ol><li>Click format. This takes a few minutes.</li>
+                            <li>TrueCrypt will write over the file you created, select okay</li>
+                            <li>Once it is complete, it will pop up a box, click okay.</li></ol>
+                        <br/>
+                        <div class="middle">
+                            <img src="images/step12.png" alt="step 12"/>
+                        </div>
+
+                        <br />
+                        <br />
+                        <p>Step 13: Volume created comes up, click exit.</p>
+                        <p>From here the wizard starts over, you can click cancel.</p>
+                        <p>You have successfully created the encrypted volume, the following instructions will allow you to use the drive</p>
+                        <br />
+                        <br />
+
+                        <div class="browntext">Working With Your Encrypted USB Stick</div>
+                        <div class="italictext">*Remember: To use this drive on other computers, you must have TrueCrypt installed</div>
+                        <br />
+
+                        <div class="purpletext">I Encrypted My USB Drive, How Do I Use the Encrypted Data?</div>
+                        <br />
+                        <div class="middle">
+                            <iframe width="560" height="315" src="http://www.youtube.com/embed/Wvt2i9cLz54" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <br />
+                        <br />
+
+                        <p>Mounting:</p>
+                        <p>Step 1: Click "select file" in the bottom right</p>
+                        <div class="middle">
+                            <img src="images/mount.png" alt="mounting"/>
+                        </div>
+                        <br/>
+
+                        <p>Step 2: Navigate to your disk, mine is on the E drive called truecrypt2.txt, hit open </p>
+                        <div class="middle">
+                            <img src="images/mount2.png" alt="mount2"/>
+                        </div>
+                        <br />
+
+                        <p>Step 3: Click mount, the password box pops up, enter your password</p>
+                        <p>Step 4: Now your encrytped container becomes a new drive, mine is drive J</p>
+                        <div class="middle">
+                            <img src="images/mount4.png" alt="mount4"/>
+                        </div>
+                        <br />
+
+                        <p>Step 5: To use the container, open Computer </p>
+                        <p>The new drive, drive J is there, this is your encrypted file container. Drag or save items here for them to be encrypted.</p>
+                        <div class="middle">
+                            <img src="images/mount5.png" alt="mount5"/>
+                        </div>
+                        <br />
+
+                        <br />
+
+                        <div class="browntext">Unmounting:</div>
+                        <p>Step 1: Open truecrypt again or just leave it open while you are working on other things.</p>
+                        <p>Step 2: Have your container selected</p>
+                        <div class="middle">
+                            <img src="images/umount.png" alt="umount"/>
+                        </div>
+                        <br />
+
+                        <p>Step 3: Click dismount</p>
+                        <div class="middle">
+                            <img src="images/umount3.png" alt="umount3"/>
+                        </div>
+                        <br />
+
+                        <p>* You can see you have dismounted the encrypted volume, using Computer, although your USB drive is still connected</p>
+                        <div class="middle">
+                            <img src="images/umount4.png" alt="umount4"/>
+                        </div>
+                        <br />
+                        <br />
+
+                        <div class="browntext">Should you have problems, please <a href="mailto:jep10f@my.fsu.edu">e-mail me</a> and I will be happy to help.</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--we are the box at the bottom-->
+        <div class="row" id="footer">
+
+            <div class="eight columns">
+                <p class="footertext" style="padding-left:10px;">
+                    <span class="purpletext">Contact
+                        <a href="mailto:jep10f@my.fsu.edu"><img class="icon" src="images/emailIcon.png" alt="email"></a>
+                        | <a href="http://www.linkedin.com/pub/jennifer-paparelli/20/711/9"> <img class="icon" src="images/linkedin.png" alt="linkedin"></a>
+                        | <a href="http://www.twitter.com/nifferelli"><img class="icon" src="images/twitter.png" alt="twitter"></a></span></p>
+            </div>
+
+
+
+            <div class="one columns">
+
+            </div>
+
+            <div class="three columns">
+                <h5><a href="docs/JenniferEPaparelli.doc">Download My Resume</a></h5>
+            </div>
+        </div>
+</body>
+</html>

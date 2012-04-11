@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="stylesheets/foundation.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="stylesheets/app.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="stylesheets/ie.css" media="screen" />
+        <link rel="stylesheet" href="stylesheets/orbit.css">
+
+        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="js/jquery.orbit.min.js" type="text/javascript"></script>
+
+        <title>Jennifer Paparelli | Lamp Server</title>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="row" id="header">
+
+                <div class="four columns">
+                    <img src="images/forMe.png" alt="logo"/>
+                </div>
+                <div class="one columns">
+
+                </div>
+                <div class="seven columns">
+                    <ul class="nav-bar">
+                        <li> <a href="index.html" class="main">Home</a> </li>
+                        <li> <a href="about.html" class="main">Who am I?</a> </li>
+                        <li> <a href="projects.html" class="main">Projects</a> </li>
+                        <li> <a href="experience.html" class="main">Experience</a> </li>
+                        <li> <a href="blog.html" class="main">Blog</a> </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row" id="divider">
+                    <div class="twelve columns">
+                        &nbsp;
+                    </div>
+                </div>
+
+            <div class="row"id="whitebox">
+                <div class="six columns">
+                    <em>How To Setup LAMP Server On A Virtual Private Server </em>
+                    <br />
+                    <p><em>Executive Summary and more for LAMP Project <a href="http://imwiththisnerd.com/wp-content/upload/2011/12/projectDoc.odt"> here </a></em></p>
+<br />
+<p>See this tutorial <a href="http://imwiththisnerd.com/wp-content/upload/2011/12/How-to-setup-LAMP-server-on-Virtual-Private-Server-1.pdf"> here as a PDF</a></p>
+<br />
+<br />
+
+
+<p>Buy a domain name using godaddy.com</p>
+
+<p>Rent Virtual Private Server from Linode.com</p>
+
+<p><strong>Choose a Linux distribution (I chose Ubuntu 10.04 Long Term Support)</strong></p>
+
+<p>• RAM Size 512 MB</p>
+
+<p>• Hard Drive Size 19968 MB</p>
+
+<p>• Swap disk 512 MB</p>
+
+<p>• Root password (make your own)</p>
+
+<p>Linode.com create the Virtual Private Server as soon as they charge the credit card payment. From the Linode Manager Dashboard it is necessary to start the Virtual Machine for the first time.</p>
+
+<p><strong>Configure DNS to have the freshly bought domain from Godaddy.com resolve to the Virtual Private Server rented from Linode.com.</strong></p>
+
+<p>Configure domain name server</p>
+
+<p>In Linode, click the tab that reads “DNS Manager”</p>
+
+<p>You will see a link “add a domain zone”</p>
+
+<p>Domain: the domain name you bought</p>
+
+<p>SOA E-mail: your e-mail address</p>
+
+<p>Create records for me? Choose yes</p>
+
+<p>Click “Add a master zone”</p>
+
+<p>Go back to Go Daddy and add in your name server</p>
+
+<p>Log in, on the left side is a link “domain manager” click</p>
+
+<p>You will see nameservers, select set nameservers</p>
+
+<p>Select “I have specific nameservers for my domains</p>
+
+<p>Copy the 1st nameserver from the linode site</p>
+
+<p>Do the same for the 2nd, 3rd and 4th</p>
+
+<p>You can click “add more” and add the 5th if you like</p>
+
+<p>The reason for this is that one may be in Atlanta, another in London, another in New Jersey. This creates redundancy in case 1 server is down, another will be up, keeping your site up.</p>
+
+<p>Click okay in Go Daddy (note: these changes can take up to 2 hrs to take effect)</p>
+
+<p>Connect to the server with SSH</p>
+
+<p>1. Click Remote Access tab in Linode Manager to find Virtual Machines IP address.</p>
+
+<p>2. You will need to SSH to log into it for the first time</p>
+
+<p>3. Open terminal in OS X</p>
+
+<p>4. You will see SSH Access ssh root@ip_address_of_virtual_machine</p>
+
+<p>5. It will kick back a message that says “authenticity of host ' ' can’t be established.</p>
+
+<p>6. Key fingerprint (will display here).</p>
+
+<p>7. Are you sure you want to continue connecting (yes/no)? type: yes</p>
+
+<p>This is the server giving you its fingerprint. It should not tell you this again every time you log in.</p>
+
+<p>If you see it give you it’s fingerprint when you log in, you may have connected to the wrong server.</p>
+
+<p><strong>Install Updates</strong></p>
+
+<p>Make sure that all software is up to date.</p>
+
+<p>Once you have successfully remotely logged into the server, type:</p>
+
+<p>apt-get update</p>
+
+<p>Once the source list of software in Ubuntu has been updated, type:</p>
+
+<p>apt-get upgrade --show-upgraded</p>
+
+<p>It will ask yes or no (Y/n), select Y</p>
+
+<p><strong>Set the Hostname</strong></p>
+
+<p>You’ll set your system’s hostname and FQDN (fully qualified domain name). Your hostname should be something unique; some people name their system after planets or people.</p>
+
+<p>The system’s hostname has no relationship to websites or e-mail hosted on it, aside from providing a name for the system itself. Don’t make it www or something generic.</p>
+
+<p>I named mine jj and its fully qualified name is the name of the website I am hosting on it.</p>
+
+<p>Open command line</p>
+
+<p>1. echo “jj” &gt; /etc/hostname</p>
+
+<p>2. Next, edit your /etc/hosts file</p>
+
+<p>• replace “example “ with your chosen hostname</p>
+
+<p>• replace example2 with your system’s domain name</p>
+
+<p>• replace “12.34.56.78” with your system’s IP address.</p>
+
+<p>3. cat /etc/default/dhcpcd</p>
+
+<p>(This is to see the location of the filename to see if you need to edit the file)</p>
+
+<p>If it returns “no such file or directory”, you’re done, you don’t need to edit the file.</p>
+
+<p>4. Edit the /etc/hosts file</p>
+
+<p>Note: the example must stay, type underneath it.</p>
+
+<p>• Replace “cat” with your hostname</p>
+
+<p>• Replace “demo” with you system’s domain name.</p>
+
+<p>• Replace the example ip address to your own.</p>
+
+<p>5. Using pico, edit /etc/hosts</p>
+
+<p>pico /etc/hosts</p>
+
+<p>Example: 127.0.0.1 localhost.localdomain localhost</p>
+
+<p>12.34.56.78 cat.demo.com cat</p>
+
+<p>If you are using IPv6 on Linode, see documentation here (http://library.linode.com/getting-started#sph_set-the-hostname)</p>
+
+<p>Type hostname -F /etc/hostname </p>
+<p>This creates the fully qualified domain name</p>
+
+<p>Want to check it? </p>
+<p>type  hostname -f</p>
+
+<p>you can also use</p>
+<p>hostname</p>
+
+
+<p>6. In the Linode Website</p>
+
+<p>• The value you assign as your system’s FQDN should have an “A” record in DNS pointing to your Linode’s IPv4 address.</p>
+
+<p>• For Linodes with IPv6 enabled, you should also set up a “AAAA” record in DNS pointing to your Linode’s IPv6 address.</p>
+
+<p>• (An A record gives you the IP address of a domain).</p>
+
+<p><strong>Set the Timezone</strong></p>
+
+<p>1. Change directory to /etc:</p>
+
+<p># cd/etc</p>
+
+<p>2. Create a symlink to file localtime:</p>
+
+<p># ln –sf /usr/share/zoneinfo/EST localtime</p>
+
+<p>3. check the date:</p>
+
+<p>date</p>
+
+<p>(This command will return date and time to verify it is set correctly)</p>
+
+<p><strong>Install Apache</strong></p>
+
+<p>Lookup Documentation and Utilities</p>
+
+<p>apt-get install apache2 apache2-doc apache-utils</p>
+
+<p><strong>Install PHP (since wordpress is developed in PHP)</strong></p>
+
+<p>apt-get install libapache2-mod-php5 php5 php-pear php5-xcache</p>
+
+<p>apt-get install php5-suhosin</p>
+
+<p><strong>Install MySQL and MySQL support</strong></p>
+
+<p>apt-get install php5-mysql</p>
+
+<p><strong>Configure Name-based Virtual Hosts</strong></p>
+
+<p>By default Apache listens on all IP addresses available to it. Issue the following command to disable the Apache virtual host.</p>
+
+<p><strong>To disable the Apache virtual host</strong></p>
+
+<p>a2dissite default</p>
+
+<p><strong>Returns “Site default disabled"</strong></p>
+
+<p>Run '/etc/init.d/apache2 reload' to activate new configuration!”</p>
+
+<p>Reload</p>
+
+<p>/etc/init.d/apache2 reload'</p>
+
+<p><strong>Create a file for your website</strong></p>
+
+<p><strong>Create a file for your website (if you have more than 1, you need a file for each)</strong></p>
+
+<p>/etc/apache2/sites-available/imwiththisnerd.com</p>
+
+<p><strong>Edit the File</strong></p>
+
+<p>pico /etc/apache2/sites-available/imwiththisnerd.com</p>
+
+<p><strong>Copy in this information, change “example” to your website name</strong></p>
+
+<p>ServerAdmin webmaster@example.net ServerName example.net ServerAlias www.example.net DocumentRoot /srv/www/example.net/public_html/ ErrorLog /srv/www/example.net/logs/error.log CustomLog /srv/www/example.net/logs/access.log combined</p>
+
+<p><strong>Create required directories for your sites with these commands</strong></p>
+
+<p>mkdir –p /srv/www/example.com/public_html</p>
+
+<p>mkdir /srv/www/examplw.com/logs</p>
+
+<p><strong>Enable the sites by issuing these commands</strong></p>
+
+<p>a2ensite example.com</p>
+
+<p>(do this for each site you are adding)</p>
+
+<p><strong>Then restart the Apache server to add changes</strong></p>
+
+<p>/etc/init.d/apache2 restart</p>
+
+<p><strong>Whenever you create or edit a virtual host file, you will need to reload the config file, which can be done by restarting the server</strong></p>
+
+<p>/etc/init.d/apache2 reload</p>
+
+<p><strong>You now have Apache installed on Ubuntu Linus and have configured your server for hosting.</strong></p>
+
+<p><strong>Install Apache Modules</strong></p>
+
+<p><strong>Enable a module in the configuration files installed in /etc/apache2/mods-available/directory</strong></p>
+
+<p>apt-cache search libapache2*</p>
+
+<p><strong>Choose the Ones You Want</strong></p>
+
+<p>apt-get install libapache2-mod-log-sql-ssl</p>
+
+<p><strong>Install MySQL</strong></p>
+
+<p>sudo apt-get install mysql-server</p>
+
+<p><strong>(It will ask you to create a password, make sure you write this down, you will need it again)</strong></p>
+
+<p>If you are running PHP (and for wordpress, we are), we need to install the PHP module for PHP 5</p>
+
+<p>sudo apt-get install php5-mysql</p>
+
+<p><strong>Setting MySQL user and password</strong></p>
+
+<p><strong>You will need the password you set up for mysql</strong>/p>
+
+<p><strong>Returns Welcome to mySql</strong></p>
+
+<p>mysql -u root -p</p>
+
+<p><strong>Create the database Wordpress</strong></p>
+
+<p>CREATE DATABASE wordpress</p>
+
+<p><strong>Create the Wordpress User</strong></p>
+
+<p>(this creates a new user of username wordpressuser, if you want a different name, enter it instead)</p>
+
+<p>CREATE USER wordpressuser;</p>
+
+<p><strong>Set Password For User</strong></p>
+
+<p>(where you see “password” is where you should create your own)</p>
+
+<p>SET PASSWORD FOR wordpressuser = PASSWORD(“password”);</p>
+
+<p><strong>Grant Privileges</strong></p>
+
+<p>This will grant the user all permissions to the database</p>
+
+<p>(replace ‘password’ with the password you set up with single quotes around it)</p>
+
+<p>GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser@localhost IDENTIFIED BY ‘password’;</p>
+
+<p><strong>Quit MySQL</strong></p>
+
+<p>Exit</p>
+
+<p><strong>Add Wordpress to the folder where Apache delivers files for you</strong></p>
+
+<p><strong>Remember above in this document where you created a file for your website?</strong></p>
+
+<p>This would be srv/www/yourwebsitename.com/public_html</p>
+
+<p><strong>You need this information for the next step</strong></p>
+
+<p><strong>Download WordPress using wget</strong></p>
+
+<p><strong>To get into the srv folder</strong></p>
+
+<p>cd /srv</p>
+
+<p><strong>To get into the www folder</strong></p>
+
+<p>cd/www</p>
+
+<p><strong>To get into the imwiththisnerd.com (name of my website, please use your own)</strong></p>
+
+<p>cd imwiththisnerd.com</p>
+
+<p><strong>To get into public_html folder</strong></p>
+
+<p>cd /public_html</p>
+
+<p><strong>Drop wordpress files into public_html</strong></p>
+
+<p>wget http://wordpress.org/latest.tar.gz</p>
+
+<p><strong>Now that latest.tar.gz has downloaded</strong></p>
+
+<p>tar –xzvf latest.tar.gz</p>
+
+<p>• That will unpack the content of the file to a folder titled wordpress in the current directory</p>
+
+<p>• This is not what you want, you need the files to be in the public_html folder</p>
+
+<p>• Therefore, you will need to copy everything from the public_html/wordpress folder to the public_html folder</p>
+
+<p><strong>The command looks like this:</strong></p>
+
+<p>cp -r /srv/www/imwiththisnerd.com/public_html/wordpress/* /srv/www/imwiththisnerd.com/public_html/</p>
+
+<p><strong>Remove the Wordpress Folder</strong></p>
+
+<p>rm -rf wordpress</p>
+
+<p><strong>Edit the wp-config-sample file.</strong></p>
+
+<p>To do so, use pico</p>
+
+<p><strong>Before you change anything, do a save as, and rename the file wp-config.php</strong></p>
+
+<p>Change</p>
+
+<p>• Database name</p>
+
+<p>• Database user</p>
+
+<p>• Database password</p>
+
+<p><strong>Leave database host, charset &amp; collate alone</strong></p>
+
+<p><strong>Now change the keys and salts part of the file using this url</strong>: https://api.wordpress.org/secret-key/1.1/salt/</p>
+
+<p>(this will generate them for you, just copy and paste them into your wp-config.php file)</p>
+
+<p><strong>Load your website in a web browser</strong></p>
+
+<p>You should now see this:</p>
+
+<p>Give wordpress the information it asks you for.</p>
+
+<p><strong>Set Up FTP</strong></p>
+
+<p><strong>Install proftpd with this command</strong></p>
+
+<p>sudo apt-get install proftpd</p>
+
+<p><strong>Add in /etc/shells file (sudo gedit /etc/shells to open the file)</strong></p>
+
+<p>/bin/false</p>
+
+<p><em>Create a /home/FTP-shared directory</em></p>
+
+<p>cd /home</p>
+
+<p>sudo mkdir FTP-shared</p>
+
+<p>><strong>Create user called ftp, which you will only use for ftp access</strong></p>
+
+<p>sudo useradd userftp -p your_password -d /home/FTP-shared -s /bin/flase</p>
+
+<p>sudo passwd userftp</p>
+
+<p><strong>In FTP-shared directory create a download and an upload directory/<strong></p>
+
+<p>cd /home/FTP-shared</p>
+
+<p>sudo mkdir download</p>
+
+<p>sudo mkdir upload</p>
+
+<p><strong>Set permissions for these directories</strong></p>
+
+<p>cd /home</p>
+
+<p>sudo chmod 755 FTP-shared</p>
+
+<p>cd FTP-shared</p>
+
+<p>sudo chmod 755 download</p>
+
+<p>sudo chmod 777 upload</p>
+
+<p><strong>Go to the proftpd configuration file</strong></p>
+
+<p>sudo gedit /etc/proftpd.conf</p>
+
+<p><strong>Edit proftpd.config file to fit your needs</strong></p>
+
+<p>To apply changes reload proftpd after modifications</p>
+
+<p>AllowOverwrite on</p>
+
+<p>AuthAliasOnly on</p>
+
+<p>Choose here the user alias you want</p>
+
+<p>UserAlias example userftp</p>
+
+<p>ServerName "myServer"</p>
+
+<p>ServerType standalone</p>
+
+<p>DeferWelcome on</p>
+
+<p>MultilineRFC2228 on</p>
+
+<p>DefaultServer on</p>
+
+<p>ShowSymlinks off</p>
+
+<p>TimeoutNoTransfer 600</p>
+
+<p>TimeoutStalled 100</p>
+
+<p>TimeoutIdle 2200</p>
+
+<p>DisplayChdir .message</p>
+
+<p>ListOptions "-1"</p>
+
+<p>RequireValidShell off</p>
+
+<p>TimeoutLogin 20</p>
+
+<p>RootLogin off</p>
+
+<p>ExtendedLog /var/log/ftp.log</p>
+
+<p>TransferLog /var/log/xferlog</p>
+
+<p>SystemLog /var/log/syslog.log</p>
+
+<p>DenyFilter \*.*/</p>
+
+<p><strong>You can edit this file if you plan to use it</strong></p>
+
+<p>UseFtpUsers off</p>
+
+<p>Allow to restart a download</p>
+
+<p>AllowStoreRestart on</p>
+
+<p>Port 21 is the standard FTP port, but you can use another</p>
+
+<p>Port 1980</p>
+
+<p>Set Max Instances (to prevent DoS attacks)</p>
+
+<p>MaxInstances 8</p>
+
+<p>Set the user and group the server normally runs at</p>
+
+<p>User nobody</p>
+
+<p>Group nogroup</p>
+
+<p>Umask 022 is a standard umask to prevent new files and dirs.</p>
+
+<p>Umask 022 022</p>
+
+<p>OersistentPasswd off</p>
+
+<p>MaxClients 8</p>
+
+<p>MaxClientPerHost 8</p>
+
+<p>MaxClientPerUser 8</p>
+
+<p>MaxHostsPerUser 8</p>
+
+<p>Display a message after a successful login</p>
+
+<p>AccessGrantMsg "welcome"</p>
+
+<p>This message is displayed for each access good or not</p>
+
+<p>ServerIdent on "you're in the home"</p>
+
+<p>Lock all users in home directory</p>
+
+<p>DefaultRoot</p>
+
+<p>MaxLoginattempts 5</p>
+
+<p>Valid Logins</p>
+
+<p>AlowUser userftp</p>
+
+<p>DenyALL</p>
+
+<p>Umask 022 022</p>
+
+<p>AllowOverwrite off</p>
+
+<p>DenyAll</p>
+
+<p>Umask 022 022</p>
+
+<p>AllowOverwrite off</p>
+
+<p>Limit MKD STOR DELE XMKD RNRF RNTO RMD XRMD</p>
+
+<p>DenyAll</p>
+
+<p>Umask 022 022</p>
+
+<p>AllowOverwrite on</p>
+
+<p>DenyAll</p>
+
+<p>AlowAll</p>
+
+<p><strong>At this point, you have done the proftpd configuration. The server is now on port 1980.</strong></p>
+
+<p>User is example, password is the one you set for example</p>
+
+<p>To start/stop/restart your server</p>
+
+<p>sudo /etc/init.d/proftpd start</p>
+
+<p>sudo /etc/init.d/proftpd stop</p>
+
+<p>sudo /etc/init.d/proftpd restart</p>
+
+<p><strong>Check your proftpd. conf file</strong></p>
+
+<p>sudo proftpd -td5
+                </div>
+            </div>
+
+
+                <!--we are the box at the bottom-->
+                <div class="row"id="footer">
+
+                    <div class="eight columns">
+                        <p class="footertext" style="padding-left:10px;">
+                            <span class="purpletext">Contact</span>
+                            <span class="greytext">E-mail:<a href="mailto:jep10f@my.fsu.edu">jep10f@my.fsu.edu</a>
+                                | <a href="http://www.linkedin.com/pub/jennifer-paparelli/20/711/9"> <img class="icon" src="images/linkedin.png" alt="linkedin"></a>
+                                | <a href="http://www.twitter.com/nifferelli"><img class="icon" src="images/twitter.png" alt="twitter"></a></span></p>
+                    </div>
+
+
+
+                <div class="one columns">
+
+                </div>
+
+                <div class="three columns">
+                    <h5><a href="http://www.imwiththisnerd.com/ir/docs/JenniferEPaparelli.doc">Download My Resume</a></h5>
+                </div>
+                </div>
+
+                <div class="row" id="divider">
+                    <div class="twelve columns">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+    </body>
+
+</html>
